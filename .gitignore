@@ -1,0 +1,6 @@
+
+.idea/
+ng-spring-cucumber.iml
+target/
+node_modules/
+src/main/resources/static/app/bower_components/

@@ -1,0 +1,30 @@
+{
+  "name": "ng-spring-cucumber",
+  "version": "1.0.0",
+  "description": "A Demo application with AngularJS and Spring Boot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/javacodenet/ng-spring-cucumber.git"
+  },
+  "keywords": [
+    "angularjs",
+    "springboot",
+    "spring"
+  ],
+  "author": "Javacodenet",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/javacodenet/ng-spring-cucumber/issues"
+  },
+  "homepage": "https://github.com/javacodenet/ng-spring-cucumber#readme",
+  "dependencies": {
+    "bower": "^1.8.0",
+    "grunt": "^1.0.1",
+    "grunt-cli": "^1.2.0",
+    "grunt-karma": "^2.0.0"
+  }
+}

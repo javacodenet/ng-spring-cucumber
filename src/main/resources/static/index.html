@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./app/bower_components/bootstrap-css-only/css/bootstrap.min.css"/>
+    <link href="./app/bower_components/AngularJS-Toaster/toaster.css" rel="stylesheet"/>
+    <title>Employees</title>
+</head>
+<body ng-app="employeeApp">
+
+<div ng-controller="employeeController as empCtrl" class="col-lg-9">
+    <div class="panel-body col-lg-3">
+        <button id="get-employees" class="btn btn-default" type="submit" title="Add" ng-click="empCtrl.getEmployees()">
+            GET Employees
+        </button>
+        <div ng-repeat="employee in empCtrl.employees" id="employee-details">
+            <div ng-if="!employee.isEditMode">
+                <p id="employee-id">{{employee.id}}</p>
+                <p id="employee-name">{{employee.name}}</p>
+                <p id="employee-company">{{employee.company}}</p>
+            </div>
+            <div ng-if="employee.isEditMode">
+                <input type="text" ng-model="employee.id"/><br/>
+                <input type="text" ng-model="employee.name"/><br/>
+                <input type="text" ng-model="employee.company"/><br/>
+            </div>
+            <a href="#" ng-if="!employee.isEditMode" ng-click="employee.isEditMode = true" class="btn btn-default"><span
+                    class="glyphicon glyphicon-pencil"></span> Edit</a>
+            <a href="#" ng-if="!employee.isEditMode" ng-click="empCtrl.deleteEmployee(employee)"
+               class="btn btn-default"><span
+                    class="glyphicon glyphicon-trash"></span> Delete</a>
+            <a href="#" ng-if="employee.isEditMode" ng-click="empCtrl.updateEmployee(employee)" class="btn btn-default"><span
+                    class="glyphicon glyphicon-save"></span> save</a>
+        </div>
+    </div>
+
+    <div class="panel-body col-lg-6">
+        <form class="form-horizontal" role="form" ng-submit="empCtrl.saveEmployee(empCtrl.newEmployee)">
+            <table>
+                <tr>
+                    <td>
+                        <label>Employee id</label>
+                    </td>
+
+                    <td>
+                        <input id="input-id" type="text" ng-model="empCtrl.newEmployee.id"/><br/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Employee Name</label>
+                    </td>
+                    <td>
+                        <input id="input-name" type="text" ng-model="empCtrl.newEmployee.name"/><br/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Employee Company</label>
+                    </td>
+                    <td>
+                        <input id="input-company" type="text" ng-model="empCtrl.newEmployee.company"/><br/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button id="add-employee" class="btn btn-default" type="submit" title="Add">
+                            Add Employee
+                        </button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<toaster-container></toaster-container>
+
+<script type="text/javascript" src="./app/bower_components/angular/angular.min.js"></script>
+<script src="./app/bower_components/angular-animate/angular-animate.min.js"></script>
+<script src="./app/bower_components/AngularJS-Toaster/toaster.min.js"></script>
+<script type="text/javascript" src="./app/bower_components/lodash/dist/lodash.min.js"></script>
+<script type="text/javascript" src="./app/bower_components/restangular/dist/restangular.min.js"></script>
+<script type="text/javascript" src="./app/app.js"></script>
+<script type="text/javascript" src="./app/common-services/restangular-services.js"></script>
+<script type="text/javascript" src="./app/controllers.js"></script>
+<script type="text/javascript" src="./app/services.js"></script>
+</body>
+</html>
